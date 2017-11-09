@@ -61,7 +61,7 @@ try {
 }
 versions.versions.push(revisionId);
 
-revisionCont = `import browser from 'webextension-polyfill';
+const revisionCont = `import browser from 'webextension-polyfill';
 
 const message = '${message}';
 
