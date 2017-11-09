@@ -1,0 +1,28 @@
+{
+  "name": "storage-versions",
+  "version": "0.1.0",
+  "author": "Armin Sebastian",
+  "repository": "https://github.com/dessant/storage-versions",
+  "license": "MIT",
+  "main": "src/index.js",
+  "bin": {
+    "create-revision": "src/revision.js"
+  },
+  "scripts": {
+    "update": "ncu --upgrade --upgradeAll && yarn",
+    "push": "git push --follow-tags origin master",
+    "release": "standard-version && yarn run push"
+  },
+  "dependencies": {
+    "commander": "^2.11.0",
+    "fs-extra": "^4.0.2",
+    "lodash": "^4.17.4",
+    "shortid": "^2.2.8",
+    "webextension-polyfill": "^0.2.1"
+  },
+  "devDependencies": {
+    "npm-check-updates": "^2.13.0",
+    "standard-version": "^4.2.0"
+  },
+  "private": true
+}
