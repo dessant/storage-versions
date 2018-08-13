@@ -40,6 +40,4 @@ async function reconcile({context, area = 'local'}) {
   return upgrade(context, area);
 }
 
-module.exports = {
-  reconcile
-};
+export {reconcile};

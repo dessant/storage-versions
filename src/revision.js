@@ -84,7 +84,7 @@ async function downgrade() {
   return storage.set(changes);
 }
 
-module.exports = {
+export {
   message,
   revision,
   upgrade,
