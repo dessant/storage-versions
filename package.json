@@ -24,5 +24,6 @@
     "npm-check-updates": "^2.14.2",
     "standard-version": "^4.4.0"
   },
+  "sideEffects": false,
   "private": true
 }
