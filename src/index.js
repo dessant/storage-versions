@@ -10,7 +10,7 @@ async function getVersions(context, area) {
   return context(`./${area}/versions.json`).versions;
 }
 
-async function upgrade(context, area) {
+async function upgrade(context, {area = 'local'} = {}) {
   const versions = await getVersions(context, area);
   const fromVer = await storageVersion(area);
   const toVer = _.last(versions);
@@ -36,8 +36,8 @@ async function upgrade(context, area) {
   }
 }
 
-async function reconcile({context, area = 'local'}) {
-  return upgrade(context, area);
+async function migrate(context, {area = 'local'} = {}) {
+  return upgrade(context, {area});
 }
 
-export {reconcile};
+export {migrate, upgrade};
