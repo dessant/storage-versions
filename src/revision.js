@@ -6,7 +6,6 @@ const {writeFileSync} = require('fs');
 const {ensureDirSync, readJsonSync, writeJsonSync} = require('fs-extra');
 const program = require('commander');
 const shortid = require('shortid');
-const _ = require('lodash');
 
 program
   .description('Saves a new storage revision in the versions folder.')
@@ -54,7 +53,7 @@ let downRevisionId;
 
 try {
   versions = readJsonSync(versionsFile);
-  downRevisionId = `'${_.last(versions.versions)}'`;
+  downRevisionId = `'${versions.versions.slice(-1)[0]}'`;
 } catch (err) {
   versions = {versions: []};
   downRevisionId = null;

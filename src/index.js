@@ -1,5 +1,5 @@
 import browser from 'webextension-polyfill';
-import _ from 'lodash';
+import {indexOf, last, slice} from 'lodash-es';
 
 async function storageVersion(area = 'local') {
   const {storageVersion} = await browser.storage[area].get('storageVersion');
@@ -13,16 +13,16 @@ async function getVersions(context, area) {
 async function upgrade(context, {area = 'local'} = {}) {
   const versions = await getVersions(context, area);
   const fromVer = await storageVersion(area);
-  const toVer = _.last(versions);
+  const toVer = last(versions);
 
   if (fromVer === toVer) {
     return;
   }
 
-  const migrationPath = _.slice(
+  const migrationPath = slice(
     versions,
-    _.indexOf(versions, fromVer) + 1,
-    _.indexOf(versions, toVer) + 1
+    indexOf(versions, fromVer) + 1,
+    indexOf(versions, toVer) + 1
   );
 
   console.log(`Migrating storage (${area}): ${fromVer} => ${toVer}`);
