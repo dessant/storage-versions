@@ -18,10 +18,11 @@
     "fs-extra": "^7.0.0",
     "lodash-es": "^4.17.10",
     "shortid": "^2.2.12",
-    "webextension-polyfill": "^0.3.0"
+    "webextension-polyfill": "^0.3.1"
   },
   "devDependencies": {
-    "npm-check-updates": "^2.14.2",
+    "npm-check-updates": "^2.15.0",
+    "prettier": "^1.15.3",
     "standard-version": "^4.4.0"
   },
   "sideEffects": false,
